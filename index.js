@@ -28,8 +28,14 @@ async function init() {
     console.error(LANG[gLang].ERR_NOTOKEN);
     process.exit(1);
   }
-  const bot = new Eris(SECRET.discord.TOKEN);
-  console.log(bot);
+  let bot = new Eris(SECRET.discord.TOKEN);
+  bot.on('ready', () => {
+    console.log(LANG[gLang].READY);
+  })
+  bot.on('messageCreate', (msg) => {
+    console.log(msg);
+  })
+  bot.connect();
 }
 
 init();

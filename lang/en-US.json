@@ -1,5 +1,6 @@
 {
-    "BOOT": "Initializing CyBorg...",
+    "BOOT":     "Initializing CyBorg...",
+    "READY":    "CyBorg is ready!",
     
     "ERR_NOTOKEN": "There is no TOKEN in ./secrets/discord.json"
 
