@@ -1,6 +1,6 @@
 /*!
  * CyBorg
- * Copyright(c) 22019 Carrie Vrtis
+ * Copyright(c) 2019 Carrie Vrtis
  * MIT Licensed
  */
 
@@ -58,8 +58,8 @@ async function init() {
   eris.on('ready', () => {
     eris.guilds.forEach((guild) => {
       joinGuild(guild);
-      console.log('...');
     });
+    console.log('...');
     console.log(LANG[gLang].READY);
     console.log(printf(LANG[gLang].OAUTH, {
       url: `https://discordapp.com/api/oauth2/authorize?client_id=${SECRET.discord.CLIENT_ID}&permissions=199680&scope=bot`

@@ -1,6 +1,6 @@
 {
     "BOOT":     "Initializing CyBorg...",
-    "OAUTH":    "To add the bot to a server, visit %(url)s",
+    "OAUTH":    "To add the bot to a server, visit:\n%(url)s",
     "JOIN":     "Joining guild %(id)s (%(name)s)...",
     "READY":    "CyBorg is ready!",
     
