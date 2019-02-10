@@ -10,8 +10,12 @@
         "INFO_RESP":    "**CyBorg %(version)s**\n\n**Status:** %(guilds)s servers with %(users)s members.\n**Uptime:** %(uptime)s",
     
         "BOOYAH":       "booyah",
-        "BOOYAH_INFO":  "BOOYAH!",
-        "BOOYAH_RESP":  "https://www.youtube.com/watch?v=Tzp5z_iGvqU"
+        "BOOYAH_DESC":  "BOOYAH!",
+        "BOOYAH_RESP":  "https://www.youtube.com/watch?v=Tzp5z_iGvqU",
+
+        "HELP":         "help",
+        "HELP_DESC":    "Displays help information.",
+        "HELP_RESP":    "**CyBorg Help** Prefix: %(prefix)s\n\n%(help)s"
     }
 
 }
