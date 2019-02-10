@@ -15,7 +15,7 @@
 
         "HELP":         "help",
         "HELP_DESC":    "Displays help information.",
-        "HELP_RESP":    "**CyBorg Help** Prefix: %(prefix)s\n\n%(help)s"
+        "HELP_RESP":    "**CyBorg Help**\nPrefix: %(prefix)s\n\n%(help)s"
     }
 
 }
