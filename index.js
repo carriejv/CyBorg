@@ -1,6 +1,14 @@
+/*!
+ * CyBorg
+ * Copyright(c) 22019 Carrie Vrtis
+ * MIT Licensed
+ */
+
 const fs = require('fs');
 const Eris = require('eris');
 const quaff = require('quaff');
+
+const Cyborg = require('./lib/cyborg.js');
 
 async function init() {
   // Load config
@@ -31,10 +39,8 @@ async function init() {
   let bot = new Eris(SECRET.discord.TOKEN);
   bot.on('ready', () => {
     console.log(LANG[gLang].READY);
-  })
-  bot.on('messageCreate', (msg) => {
-    console.log(msg);
-  })
+    let cyborg = new Cyborg(bot, {id: `415353531193884682`}, LANG, {lang: 'en-US', prefix: '!cy'});
+  });
   bot.connect();
 }
 

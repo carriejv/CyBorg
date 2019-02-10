@@ -2,6 +2,12 @@
     "BOOT":     "Initializing CyBorg...",
     "READY":    "CyBorg is ready!",
     
-    "ERR_NOTOKEN": "There is no TOKEN in ./secrets/discord.json"
+    "ERR_NOTOKEN": "There is no TOKEN in ./secrets/discord.json",
+
+    "COMMAND": {
+        "INFO":         "info",
+        "INFO_DESC":    "Displays general information, version number, and uptime.",
+        "INFO_RESP":    "**CyBorg %(version)s**\n\n**Status:** %(guilds)s servers with %(users)s members.\n**Uptime:** %(uptime)s"
+    }
 
 }
