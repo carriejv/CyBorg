@@ -10,7 +10,8 @@ const quaff = require('quaff');
 const printf = require('printf');
 
 const Cyborg = require('./lib/cyborg.js');
-let cyInstances = {};
+
+const cyInstances = {};
 
 async function init() {
   // Load config
@@ -39,17 +40,30 @@ async function init() {
     console.error(LANG[gLang].ERR_NOTOKEN);
     process.exit(1);
   }
+
   const eris = new Eris(SECRET.discord.TOKEN);
+
+  /**
+   * Creates a CyBorg instance and binds it to a guild (server).
+   * @param {Guild} guild The Eris Guild object to join.
+   */
+  function joinGuild(guild) {
+    console.log(printf(LANG[gLang].JOIN, {
+      id: guild.id,
+      name: guild.name,
+    }));
+    cyInstances[guild.id] = new Cyborg(eris, guild, LANG, { lang: 'en-US', prefix: '!cy' });
+  }
+
   eris.on('ready', () => {
-    for(let [id, guild] of eris.guilds) {
-      console.log(printf(LANG[gLang].JOIN, {
-        id: id,
-        name: guild.name
-      }));
-      cyInstances[guild.id]= new Cyborg(eris, guild, LANG, { lang: 'en-US', prefix: '!cy' });
-    }
-    console.log('...');
+    eris.guilds.forEach((guild) => {
+      joinGuild(guild);
+      console.log('...');
+    });
     console.log(LANG[gLang].READY);
+  });
+  eris.on('guildCreate', (guild) => {
+    joinGuild(guild);
   });
   eris.connect();
 }
