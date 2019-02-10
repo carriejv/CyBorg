@@ -36,10 +36,10 @@ async function init() {
     console.error(LANG[gLang].ERR_NOTOKEN);
     process.exit(1);
   }
-  let bot = new Eris(SECRET.discord.TOKEN);
+  const bot = new Eris(SECRET.discord.TOKEN);
   bot.on('ready', () => {
     console.log(LANG[gLang].READY);
-    let cyborg = new Cyborg(bot, {id: `415353531193884682`}, LANG, {lang: 'en-US', prefix: '!cy'});
+    const cyborg = new Cyborg(bot, { id: '415353531193884682' }, LANG, { lang: 'en-US', prefix: '!cy' });
   });
   bot.connect();
 }
