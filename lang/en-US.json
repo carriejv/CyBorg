@@ -15,6 +15,12 @@
         "BOOYAH_DESC":  "BOOYAH!",
         "BOOYAH_RESP":  "https://www.youtube.com/watch?v=Tzp5z_iGvqU",
 
+        "CHUCK":        "chuck",
+        "CHUCK_ALIAS":  "chucknorris",
+        "CHUCK_DESC":   "Displays a random Chuck Norris fact.",
+        "CHUCK_RESP":   "%(chuck)s",
+        "CHUCK_ERR":    "Could not retrieve a Chuck Norris fact. ;_;",
+
         "CHANNEL":      "channel [channel-mention]",
         "CHANNEL_DESC": "**(Admin)** Sets the channel for CyTube announcements. If no channel is mentioned, CyBorg will announce in the channel in which the command is used.",
         "CHANNEL_RESP": "Channel set successfully!",
