@@ -1,0 +1,36 @@
+{
+  "name": "cyborg",
+  "version": "0.1.0",
+  "description": "A CyTube bot for Discord.",
+  "main": "index.js",
+  "dependencies": {
+    "cytube-client": "^1.0.1",
+    "eris": "^0.9.0",
+    "quaff": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carriejv/CyBorg.git"
+  },
+  "keywords": [
+    "cytube",
+    "sync",
+    "discord",
+    "bot",
+    "youtube"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carriejv/CyBorg/issues"
+  },
+  "homepage": "https://github.com/carriejv/CyBorg#readme"
+}

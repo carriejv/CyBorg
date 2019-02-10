@@ -1,0 +1,6 @@
+{
+    "BOOT": "Initializing CyBorg...",
+    
+    "ERR_NOTOKEN": "There is no TOKEN in ./secrets/discord.json"
+
+}
