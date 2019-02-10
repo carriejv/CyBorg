@@ -16,11 +16,12 @@
         "BOOYAH_RESP":  "https://www.youtube.com/watch?v=Tzp5z_iGvqU",
 
         "CHANNEL":      "channel [channel-mention]",
-        "CHANNEL_DESC": "[Admin] Sets the channel for CyTube announcements. If no channel is mentioned, CyBorg will announce in the channel in which the command is used.",
+        "CHANNEL_DESC": "**(Admin)** Sets the channel for CyTube announcements. If no channel is mentioned, CyBorg will announce in the channel in which the command is used.",
         "CHANNEL_RESP": "Channel set successfully!",
         "CHANNEL_ERR":  "Could not find a valid channel.",
 
         "HELP":         "help",
+        "HELP_ALIAS":   "commands",
         "HELP_DESC":    "Displays help information.",
         "HELP_RESP":    "**CyBorg Help**\nPrefix: %(prefix)s\n\n%(help)s"
     }

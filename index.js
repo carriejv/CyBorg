@@ -10,6 +10,7 @@ const quaff = require('quaff');
 const printf = require('printf');
 
 const Cyborg = require('./lib/cyborg.js');
+const commander = require('./lib/commands.js');
 
 const cyInstances = {};
 
@@ -41,7 +42,11 @@ async function init() {
     process.exit(1);
   }
 
+  // Create global Eris instance
   const eris = new Eris(SECRET.discord.TOKEN);
+
+  // Generate Commands
+  const commandParser = commander(eris, LANG);
 
   /**
    * Creates a CyBorg instance and binds it to a guild (server).
@@ -52,7 +57,7 @@ async function init() {
       id: guild.id,
       name: guild.name,
     }));
-    cyInstances[guild.id] = new Cyborg(eris, guild, LANG, { lang: 'en-US', prefix: '!cy' });
+    cyInstances[guild.id] = new Cyborg(eris, commandParser, guild, LANG, { lang: 'en-US', prefix: '!cy' });
   }
 
   eris.on('ready', () => {
@@ -62,7 +67,7 @@ async function init() {
     console.log('...');
     console.log(LANG[gLang].READY);
     console.log(printf(LANG[gLang].OAUTH, {
-      url: `https://discordapp.com/api/oauth2/authorize?client_id=${SECRET.discord.CLIENT_ID}&permissions=199680&scope=bot`
+      url: `https://discordapp.com/api/oauth2/authorize?client_id=${SECRET.discord.CLIENT_ID}&permissions=199680&scope=bot`,
     }));
   });
   eris.on('guildCreate', (guild) => {
