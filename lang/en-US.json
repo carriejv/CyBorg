@@ -22,11 +22,11 @@
         "CHUCK_ERR":    "Could not retrieve a Chuck Norris fact. ;_;",
 
         "ADMIN":        "admin <user-mention>",
-        "ADMIN_DESC":   "Promotes a user to admin.",
+        "ADMIN_DESC":   "Toggles admin rights for a user.",
         "ADMIN_RESP":   "%(user)s promoted to admin!",
         "ADMIN_UNDO":   "%(user)s demoted from admin.",
         "ADMIN_ERR":    {
-            "DEMOTE_ADMIN": "Cannot demote the channel owner.",
+            "DEMOTE_OWNER": "Cannot demote the channel owner.",
             "NO_USER":      "Please @mention a valid user."
         },
 
