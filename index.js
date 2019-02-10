@@ -61,6 +61,9 @@ async function init() {
       console.log('...');
     });
     console.log(LANG[gLang].READY);
+    console.log(printf(LANG[gLang].OAUTH, {
+      url: 'https://discordapp.com/api/oauth2/authorize?client_id=422496569489752064&permissions=199680&scope=bot'
+    }));
   });
   eris.on('guildCreate', (guild) => {
     joinGuild(guild);
