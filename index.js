@@ -74,7 +74,7 @@ async function init() {
     joinGuild(guild);
     eris.createMessage(guild.systemChannelID, printf(LANG[gLang].NEW_GUILD,
       {
-        version: process.env.npm_package_version
+        version: process.env.npm_package_version,
       }));
   });
   eris.connect();
