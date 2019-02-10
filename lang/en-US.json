@@ -21,6 +21,8 @@
         "CHUCK_RESP":   "%(chuck)s",
         "CHUCK_ERR":    "Could not retrieve a Chuck Norris fact. ;_;",
 
+        "ADMIN":        "admin",
+
         "CHANNEL":      "channel [channel-mention]",
         "CHANNEL_DESC": "**(Admin)** Sets the channel for CyTube announcements. If no channel is mentioned, CyBorg will announce in the channel in which the command is used.",
         "CHANNEL_RESP": "Channel set successfully!",
@@ -29,7 +31,9 @@
         "HELP":         "help",
         "HELP_ALIAS":   "commands",
         "HELP_DESC":    "Displays help information.",
-        "HELP_RESP":    "**CyBorg Help**\nPrefix: %(prefix)s\n\n%(help)s"
+        "HELP_RESP":    "**CyBorg Help**\nPrefix: %(prefix)s\n\n%(help)s",
+
+        "ERR_NOADMIN":  "This command can only be used by admins.\n**%(prefix)s %(command)s [mention]** to promote a user."
     }
 
 }
