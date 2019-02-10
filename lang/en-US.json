@@ -40,7 +40,7 @@
         "HELP_DESC":    "Displays help information.",
         "HELP_RESP":    "**CyBorg Help**\nPrefix: %(prefix)s\n\n%(help)s",
 
-        "ERR_NOADMIN":  "This command can only be used by admins.\n**%(prefix)s %(command)s <mention>** to promote a user."
+        "ERR_NOADMIN":  "This command can only be used by admins.\n**%(prefix)s %(command)s** to promote a user."
     }
 
 }
