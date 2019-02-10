@@ -34,8 +34,8 @@
 
         "CHANNEL":      "channel [channel-mention]",
         "CHANNEL_DESC": "**(Admin)** Sets the channel for CyTube announcements. If no channel is mentioned, CyBorg will announce in the channel in which the command is used.",
-        "CHANNEL_RESP": "Channel set successfully!",
-        "CHANNEL_ERR":  "Could not find a valid channel.",
+        "CHANNEL_RESP": "CyTu.be announcements will now appear in %(channel)s!",
+        "CHANNEL_ERR":  "Please #mention a valid channel.",
 
         "HELP":         "help",
         "HELP_ALIAS":   "commands",
