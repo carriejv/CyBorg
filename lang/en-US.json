@@ -23,6 +23,11 @@
         "CHUCK_RESP":   "%(chuck)s",
         "CHUCK_ERR":    "Could not retrieve a Chuck Norris fact. ;_;",
 
+        "CYTUBE":       "cytube <channel-name>",
+        "CYTUBE_DESC":  "Retrieves information about a CyTu.be room.",
+        "CYTUBE_RESP":  "**CyTu.be: %(name)s**\nhttps://cytu.be/r/%(name)s\n\n%(users)s users are currently watching %(title)s.\n%(url)s",
+        "CYTUBE_ERR":   "That channel doesn't seem to exist, or it isn't active right now.",
+
         "ADMIN":        "admin <user-mention>",
         "ADMIN_DESC":   "**(Admin)** Toggles admin rights for a user.",
         "ADMIN_RESP":   "%(user)s promoted to admin!",

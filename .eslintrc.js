@@ -2,6 +2,7 @@ module.exports = {
     "extends": "airbnb-base",
     "rules": {
         "no-console": 0,
+        "class-methods-use-this": 0,
         "max-len": [
             "error",
             { 
