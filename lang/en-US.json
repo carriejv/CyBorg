@@ -3,6 +3,8 @@
     "OAUTH":    "To add the bot to a server, visit:\n%(url)s",
     "JOIN":     "Joining guild %(id)s (%(name)s)...",
     "READY":    "CyBorg is ready!",
+
+    "NEW_GUILD":   "Welcome to **CyBorg %(version)s**!\nTo begin, set a channel for announcements with `!cy channel [channel name]` and then follow a cytu.be room with `!cy cytube [room name]`.\nYou can always `!cy help` for more information!",
     
     "ERR_NOTOKEN": "There is no TOKEN in ./secrets/discord.json",
 
@@ -22,7 +24,7 @@
         "CHUCK_ERR":    "Could not retrieve a Chuck Norris fact. ;_;",
 
         "ADMIN":        "admin <user-mention>",
-        "ADMIN_DESC":   "Toggles admin rights for a user.",
+        "ADMIN_DESC":   "**(Admin)** Toggles admin rights for a user.",
         "ADMIN_RESP":   "%(user)s promoted to admin!",
         "ADMIN_UNDO":   "%(user)s demoted from admin.",
         "ADMIN_ERR":    {
