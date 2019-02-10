@@ -57,7 +57,7 @@ async function init() {
       id: guild.id,
       name: guild.name,
     }));
-    cyInstances[guild.id] = new Cyborg(eris, commandParser, guild, LANG, { lang: 'en-US', prefix: '!cy' });
+    cyInstances[guild.id] = new Cyborg(eris, commandParser, guild, LANG);
   }
 
   eris.on('ready', () => {

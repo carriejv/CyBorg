@@ -4,7 +4,7 @@
     "JOIN":     "Joining guild %(id)s (%(name)s)...",
     "READY":    "CyBorg is ready!",
 
-    "NEW_GUILD":   "Welcome to **CyBorg %(version)s**!\nTo begin, set a channel for announcements with `!cy channel [channel name]` and then follow a cytu.be room with `!cy cytube [room name]`.\nYou can always `!cy help` for more information!",
+    "NEW_GUILD":   "Welcome to **CyBorg %(version)s**!\n`!cy cytube [channel name]` to get info about a CyTu.be channel.\nYou can also `!cy announce [channel name] to automatically post info and `!cy channel [discord channel mention]` to set where those announcements appear.\nYou can always `!cy help` for more information!",
     
     "ERR_NOTOKEN": "There is no TOKEN in ./secrets/discord.json",
 
