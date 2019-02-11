@@ -43,6 +43,15 @@
             "NO_USER":      "Please @mention a valid user."
         },
 
+        "LANG":       "lang <%(options)s>",
+        "LANG_DESC":  "**(Admin)** Sets the language. Use `lang help` for a list of options.",
+        "LANG_RESP":  "Language set to English! [en-US]",
+        "LANG_ERR":   "Please use a select language. Use `lang help` for options.",
+
+        "PREFIX":       "prefix <new-prefix>",
+        "PREFIX_DESC":  "**(Admin)** Sets a new command prefix.",
+        "PREFIX_RESP":  "New prefix set! **%(prefix)s**",
+
         "CHANNEL":      "channel [channel-mention]",
         "CHANNEL_DESC": "**(Admin)** Sets the channel for CyTube announcements. If no channel is mentioned, CyBorg will announce in the channel in which the command is used.",
         "CHANNEL_RESP": "CyTube announcements will now appear in %(channel)s!",
@@ -53,7 +62,7 @@
         "HELP_DESC":    "Displays help information.",
         "HELP_RESP":    "**CyBorg Help**\nPrefix: %(prefix)s\n\n%(help)s",
 
-        "ERR_NOADMIN":  "This command can only be used by admins.\n**%(prefix)s %(command)s** to promote a user."
+        "ERR_NOADMIN":  "This command can only be used by admins.\n`%(prefix)s %(command)s` to promote a user."
     }
 
 }
