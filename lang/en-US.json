@@ -24,9 +24,15 @@
         "CHUCK_ERR":    "Could not retrieve a Chuck Norris fact. ;_;",
 
         "CYTUBE":       "cytube <channel-name>",
-        "CYTUBE_DESC":  "Retrieves information about a CyTu.be room.",
-        "CYTUBE_RESP":  "**CyTu.be: %(name)s**\nhttps://cytu.be/r/%(name)s\n\n%(users)s users are currently watching %(title)s.\n%(url)s",
+        "CYTUBE_DESC":  "Retrieves information about a CyTube room.",
+        "CYTUBE_RESP":  "**CyTube: %(name)s**\nhttps://cytu.be/r/%(name)s\n\n%(users)s users are currently watching %(title)s.\n%(url)s",
         "CYTUBE_ERR":   "That channel doesn't seem to exist, or it isn't active right now.",
+
+        "ANNOUNCE":       "announce <channel-name>",
+        "ANNOUNCE_DESC":  "**(Admin)** Toggles new video announcements for a CyTube room.",
+        "ANNOUNCE_RESP":  "Events in %(channel)s will be announced in %(discord)s!",
+        "ANNOUNCE_UNDO":  "Events in %(channel)s will no longer be announced.",
+        "ANNOUNCE_CB":    "**CyTube: %(name)s**\nhttps://cytu.be/r/%(name)s\n\n%(users)s users just started watching %(title)s.\n%(url)s",
 
         "ADMIN":        "admin <user-mention>",
         "ADMIN_DESC":   "**(Admin)** Toggles admin rights for a user.",
@@ -39,7 +45,7 @@
 
         "CHANNEL":      "channel [channel-mention]",
         "CHANNEL_DESC": "**(Admin)** Sets the channel for CyTube announcements. If no channel is mentioned, CyBorg will announce in the channel in which the command is used.",
-        "CHANNEL_RESP": "CyTu.be announcements will now appear in %(channel)s!",
+        "CHANNEL_RESP": "CyTube announcements will now appear in %(channel)s!",
         "CHANNEL_ERR":  "Please #mention a valid channel.",
 
         "HELP":         "help",
