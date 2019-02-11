@@ -1,5 +1,5 @@
 {
-  "name": "cyborg",
+  "name": "cyborg-bot",
   "version": "0.1.0",
   "description": "A CyTube bot for Discord.",
   "main": "index.js",
@@ -38,10 +38,13 @@
     "bot",
     "youtube"
   ],
-  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/carriejv/CyBorg/issues"
   },
-  "homepage": "https://github.com/carriejv/CyBorg#readme"
+	"homepage": "https://github.com/carriejv/CyBorg",
+	"author": "Carrie Vrtis <cjvrtis@gmail.com> (https://www.carrievrtis.com)",
+	"contributors": [
+		"Carrie Vrtis <cjvrtis@gmail.com> (https://www.carrievrtis.com)"
+	]
 }
