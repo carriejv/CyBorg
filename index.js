@@ -69,6 +69,19 @@ async function init() {
     console.log(printf(LANG[gLang].OAUTH, {
       url: `https://discordapp.com/api/oauth2/authorize?client_id=${SECRET.discord.CLIENT_ID}&permissions=199680&scope=bot`,
     }));
+    function statusUpdate() {
+      const status = {
+        status: 'online',
+        game: {
+          name: `${eris.users.size} Users. BOOYAH!`,
+          type: 3,
+          url: 'https://github.com/carriejv/cyborg',
+        },
+      };
+      eris.editStatus(status);
+    }
+    statusUpdate();
+    setInterval(statusUpdate, 30000);
   });
   eris.on('guildCreate', (guild) => {
     joinGuild(guild);
