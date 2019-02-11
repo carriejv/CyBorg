@@ -1,5 +1,12 @@
 # CyBorg
 
+[![npm version](https://img.shields.io/npm/v/cyborg-bot.svg)](https://www.npmjs.com/package/cyborg-bot)
+[![npm license](https://img.shields.io/npm/l/cyborg-bot.svg)](https://www.npmjs.com/package/cyborg-bot)
+[![dependencies](https://img.shields.io/david/carriejv/cyborg.svg)](https://david-dm.org/carriejv/cyborg)
+[![devDependencies](https://img.shields.io/david/dev/carriejv/cyborg.svg)](https://david-dm.org/carriejv/cyborg#info=devDependencies)
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/carriejv)
+
 CyBorg is a [Discord](https://discordapp.com) bot for [CyTube](https://cytu.be) channels.
 
 It is still early in development, so many features are messy and incomplete. You have been warned.
