@@ -18,9 +18,9 @@ async function init() {
   // Load config
   const CONFIG = async () => {
     try {
-      return await JSON.parse(fs.readFile('./config.json'));
+      return await JSON.parse(fs.readFile('./config/global.json'));
     } catch (e) {
-      console.error('CyBorg could not find a config.json file!');
+      console.error('CyBorg could not find a ./config/global.json file!');
       return false;
     }
   };

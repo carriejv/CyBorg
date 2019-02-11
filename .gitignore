@@ -29,3 +29,8 @@ node_modules
 
 # Super secret
 secret/*
+!secret/example.json
+
+# Server config files
+config/*
+!config/global.json
