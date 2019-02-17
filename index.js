@@ -91,7 +91,7 @@ async function init() {
     setInterval(statusUpdate, 30000);
     // Attach listeners.
     eris.on('messageCreate', (msg) => {
-      if(msg.channel.guild.id) {
+      if(msg.channel && msg.channel.guild && msg.channel.guild.id) {
         // Do not parse PMs
         let cyborgHandler = cyInstances[msg.channel.guild.id];
         if(!cyborgHandler) {
