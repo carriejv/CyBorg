@@ -108,7 +108,7 @@ async function init() {
     try {
       eris.createMessage(guild.systemChannelID, printf(LANG[gLang].NEW_GUILD,
         {
-          version: process.env.npm_package_version || lang[LANG_CODE].cyborgVersion,
+          version: process.env.npm_package_version || lang[LANG_CODE].VERSION,
         }));
       }
       catch(err) {
