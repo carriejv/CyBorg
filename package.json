@@ -1,6 +1,6 @@
 {
   "name": "cyborg-bot",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A CyTube bot for Discord.",
   "main": "index.js",
   "dependencies": {
