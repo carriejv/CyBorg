@@ -55,13 +55,16 @@ async function init() {
   function joinGuild(guild) {
     console.log(printf(LANG[gLang].JOIN, {
       id: guild.id,
-      name: guild.name,
+      name: guild.name || '(Unknown or Unavailable Guild)',
     }));
     cyInstances[guild.id] = new Cyborg(eris, commandParser, guild, LANG);
   }
 
   eris.on('ready', () => {
     eris.guilds.forEach((guild) => {
+      joinGuild(guild);
+    });
+    eris.unavailableGuilds.forEach((guild) => {
       joinGuild(guild);
     });
     console.log('...');
@@ -82,13 +85,35 @@ async function init() {
     }
     statusUpdate();
     setInterval(statusUpdate, 30000);
+    // Attach listeners.
+    eris.on('messageCreate', (msg) => {
+      if(msg.channel.guild.id) {
+        // Do not parse PMs
+        let cyborgHandler = cyInstances[msg.channel.guild.id];
+        if(!cyborgHandler) {
+          console.log(msg);
+        }
+        if (cyborgHandler.isValidCommand(msg)) {
+          eris.sendChannelTyping(msg.channel.id);
+          commandParser.parse(`${cyborgHandler.config.lang} ${msg.content.replace(cyborgHandler.config.prefix, '').trim()}`, {
+            cyborg: cyborgHandler,
+            message: msg,
+          });
+        }
+      }
+    });
   });
   eris.on('guildCreate', (guild) => {
     joinGuild(guild);
-    eris.createMessage(guild.systemChannelID, printf(LANG[gLang].NEW_GUILD,
-      {
-        version: process.env.npm_package_version,
-      }));
+    try {
+      eris.createMessage(guild.systemChannelID, printf(LANG[gLang].NEW_GUILD,
+        {
+          version: process.env.npm_package_version,
+        }));
+      }
+      catch(err) {
+        console.error(err);
+      }
   });
   eris.connect();
 }
