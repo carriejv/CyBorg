@@ -44,6 +44,7 @@ async function init() {
 
   // Create global Eris instance
   const eris = new Eris(SECRET.discord.TOKEN);
+  let isReady = false;
 
   // Generate Commands
   const commandParser = commander(eris, LANG);
@@ -61,6 +62,9 @@ async function init() {
   }
 
   eris.on('ready', () => {
+    if(isReady) {
+      return;
+    }
     eris.guilds.forEach((guild) => {
       joinGuild(guild);
     });
