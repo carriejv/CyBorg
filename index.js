@@ -63,8 +63,9 @@ async function init() {
 
   eris.on('ready', () => {
     if(isReady) {
-      return;
+      return false;
     }
+    isReady = true;
     eris.guilds.forEach((guild) => {
       joinGuild(guild);
     });
