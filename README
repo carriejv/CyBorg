@@ -31,7 +31,9 @@ Other commands include:
 
 ## Host your own copy!
 
-If you prefer to locally host your own copy of CyBorg, you can do that too. CyBorg requires the [Node.js](https://nodejs.org/en/) `v11.8.0` runtime.
+### With Node
+
+If you prefer to locally host your own copy of CyBorg, you can do that too. CyBorg requires Node.js](https://nodejs.org/en/) `>=10`.
 
 Register your own Discord app [here](https://nodejs.org/en/) and fill the appropriate information into `./secrets/discord.json`. An example file is provided.
 

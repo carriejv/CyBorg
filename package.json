@@ -4,20 +4,15 @@
   "description": "A CyTube bot for Discord.",
   "main": "index.js",
   "dependencies": {
-    "bot-commander": "^1.1.1",
+    "bot-commander": "^1.1.2",
     "chucknorris-io": "^1.0.5",
-    "cytube-client": "^1.0.1",
-    "eris": "^0.9.0",
-    "printf": "^0.5.1",
-    "quaff": "^4.0.0"
+    "cytube-client": "^1.1.0",
+    "eris": "^0.13.0",
+    "printf": "^0.6.0",
+    "quaff": "^4.2.0"
   },
   "devDependencies": {
-    "eslint": "^5.13.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint": "^7.10.0",
     "nodemon": "^1.18.10"
   },
   "scripts": {
