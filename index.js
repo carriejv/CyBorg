@@ -61,6 +61,19 @@ async function init() {
     cyInstances[guild.id] = new Cyborg(eris, commandParser, guild, LANG);
   }
 
+  /** Updates bot status message. */
+  function statusUpdate() {
+    const status = {
+      status: 'online',
+      game: {
+        name: `${eris.users.size} Users. BOOYAH!`,
+        type: 3,
+        url: 'https://github.com/carriejv/cyborg',
+      },
+    };
+    eris.editStatus(status);
+  }
+
   eris.on('ready', () => {
     if(isReady) {
       return false;
@@ -77,17 +90,6 @@ async function init() {
     console.log(printf(LANG[gLang].OAUTH, {
       url: `https://discordapp.com/api/oauth2/authorize?client_id=${SECRET.discord.CLIENT_ID}&permissions=199680&scope=bot`,
     }));
-    function statusUpdate() {
-      const status = {
-        status: 'online',
-        game: {
-          name: `${eris.users.size} Users. BOOYAH!`,
-          type: 3,
-          url: 'https://github.com/carriejv/cyborg',
-        },
-      };
-      eris.editStatus(status);
-    }
     statusUpdate();
     setInterval(statusUpdate, 30000);
     // Attach listeners.
@@ -96,7 +98,7 @@ async function init() {
         // Do not parse PMs
         let cyborgHandler = cyInstances[msg.channel.guild.id];
         if(!cyborgHandler) {
-          console.log(msg);
+          console.log('Message received without a handler (possibly a PM):', msg);
         }
         if (cyborgHandler.isValidCommand(msg)) {
           eris.sendChannelTyping(msg.channel.id);
