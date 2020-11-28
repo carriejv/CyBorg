@@ -10,3 +10,4 @@ tsconfig.json
 .nvmrc
 .npmrc
 .eslintrc
+Dockerfile

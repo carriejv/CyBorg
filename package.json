@@ -12,8 +12,7 @@
     "quaff": "^4.2.0"
   },
   "devDependencies": {
-    "eslint": "^7.10.0",
-    "nodemon": "^1.18.10"
+    "eslint": "^7.10.0"
   },
   "scripts": {
     "start": "node index.js",
