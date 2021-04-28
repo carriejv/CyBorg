@@ -90,7 +90,7 @@ async function init() {
         break;
       case 3:
         status = {
-          name: `!cy help. Booyah!`,
+          name: `!cy ?. Booyah!`,
           type: 0,
           url: 'https://github.com/carriejv/cyborg',
         };
