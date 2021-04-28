@@ -112,14 +112,20 @@ async function init() {
     try {
       eris.createMessage(guild.systemChannelID, printf(LANG[gLang].NEW_GUILD,
         {
-          version: process.env.npm_package_version || lang[LANG_CODE].VERSION,
+          version: process.env.npm_package_version,
         }));
       }
       catch(err) {
         console.error(err);
       }
   });
-  eris.connect();
+  // Errors can get thrown here in case of temporary connection outages, but Eris reconnects automatically.
+  try {
+    eris.connect();
+  }
+  catch(err) {
+    console.log(`Discord connection error: ${err}`);
+  }
 }
 
 init();

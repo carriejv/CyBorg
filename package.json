@@ -1,18 +1,18 @@
 {
   "name": "cyborg-bot",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "A CyTube bot for Discord.",
   "main": "index.js",
   "dependencies": {
     "bot-commander": "^1.1.2",
     "chucknorris-io": "^1.0.5",
-    "cytube-client": "^1.2.1",
-    "eris": "^0.14.0",
-    "printf": "^0.6.0",
+    "cytube-client": "^1.2.2",
+    "eris": "^0.15.0",
+    "printf": "^0.6.1",
     "quaff": "^4.2.0"
   },
   "devDependencies": {
-    "eslint": "^7.16.0"
+    "eslint": "^7.25.0"
   },
   "scripts": {
     "start": "node index.js",
