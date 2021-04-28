@@ -5,11 +5,15 @@
   "main": "index.js",
   "dependencies": {
     "bot-commander": "^1.1.2",
+    "bufferutil": "^4.0.3",
     "chucknorris-io": "^1.0.5",
     "cytube-client": "^1.2.2",
     "eris": "^0.15.0",
+    "erlpack": "github:abalabahaha/erlpack",
+    "pako": "^1.0.11",
     "printf": "^0.6.1",
-    "quaff": "^4.2.0"
+    "quaff": "^4.2.0",
+    "zlib-sync": "^0.1.7"
   },
   "devDependencies": {
     "eslint": "^7.25.0"
@@ -37,8 +41,8 @@
     "url": "https://github.com/carriejv/CyBorg/issues"
   },
   "homepage": "https://github.com/carriejv/CyBorg",
-  "author": "Carrie Vrtis <carrie@carriejv.com> (https://www.carriejv.com)",
+  "author": "Carrie J V <carrie@carriejv.com> (https://www.carriejv.com)",
   "contributors": [
-    "Carrie Vrtis <carrie@carriejv.com> (https://www.carriejv.com)"
+    "Carrie J V <carrie@carriejv.com> (https://www.carriejv.com)"
   ]
 }

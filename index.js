@@ -45,9 +45,32 @@ async function init() {
   // Create global Eris instance
   const eris = new Eris(SECRET.discord.TOKEN);
   let isReady = false;
+  let isConnecting = false;
+  let reconnectInterval = false;
 
   // Generate Commands
   const commandParser = commander(eris, LANG);
+
+  /**
+   * Initializes an Eris connection, triggering a reconnect timer if it fails.
+   * Checks `isConnecting` to prevent multiple shard disconnects from attempting to trigger multiple reconnects.
+   */
+  async function connectEris() {
+    if(isConnecting) {
+      return false;
+    }
+    isConnecting = true;
+    try {
+      await eris.connect();
+      reconnectInterval && clearInterval(reconnectInterval);
+      isConnecting = false;
+      console.log('Successfully connected to Discord.');
+    }
+    catch(err) {
+      console.error(`Discord connection error: ${err}. Attempting to reconnect...`);
+      reconnectInterval = SetInterval(init, 10000);
+    }
+  }
 
   /**
    * Creates a CyBorg instance and binds it to a guild (server).
@@ -67,8 +90,9 @@ async function init() {
     let status;
     switch(statusIndex) {
       case 0:
+        const users = eris.guilds.map(x => x.memberCount).reduce((a, c) => a + c);
         status = {
-          name: `${eris.users.size} users. Booyah!`,
+          name: `${users} users. Booyah!`,
           type: 3,
           url: 'https://github.com/carriejv/cyborg',
         };
@@ -137,26 +161,31 @@ async function init() {
         }
       }
     });
+
+    // Handle joining a new server
+    eris.on('guildCreate', (guild) => {
+      joinGuild(guild);
+      try {
+        eris.createMessage(guild.systemChannelID, printf(LANG[gLang].NEW_GUILD,
+          {
+            version: process.env.npm_package_version,
+          }));
+        }
+        catch(err) {
+          console.error(err);
+        }
+    });
+
+    // Raw Eris errors usually indicate a connection problem
+    eris.on('error', (error) => {
+      console.error('Discord connection error.')
+      console.error(error);
+      connectEris();
+    });
+
   });
-  eris.on('guildCreate', (guild) => {
-    joinGuild(guild);
-    try {
-      eris.createMessage(guild.systemChannelID, printf(LANG[gLang].NEW_GUILD,
-        {
-          version: process.env.npm_package_version,
-        }));
-      }
-      catch(err) {
-        console.error(err);
-      }
-  });
-  // Errors can get thrown here in case of temporary connection outages, but Eris reconnects automatically.
-  try {
-    eris.connect();
-  }
-  catch(err) {
-    console.error(`Discord connection error: ${err}`);
-  }
+
+  connectEris();
 }
 
 init();
