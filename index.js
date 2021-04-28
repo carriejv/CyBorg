@@ -63,15 +63,12 @@ async function init() {
 
   /** Updates bot status message. */
   function statusUpdate() {
-    const status = {
-      status: 'online',
-      game: {
-        name: `${eris.users.size} Users. BOOYAH!`,
-        type: 3,
-        url: 'https://github.com/carriejv/cyborg',
-      },
+    const status =  {
+      name: `${eris.users.size} Users. BOOYAH!`,
+      type: 3,
+      url: 'https://github.com/carriejv/cyborg',
     };
-    eris.editStatus(status);
+    eris.editStatus('online', status);
   }
 
   eris.on('ready', () => {
