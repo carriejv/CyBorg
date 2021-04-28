@@ -61,14 +61,45 @@ async function init() {
     cyInstances[guild.id] = new Cyborg(eris, commandParser, guild, LANG);
   }
 
+  let statusIndex = 0
   /** Updates bot status message. */
   function statusUpdate() {
-    const status =  {
-      name: `${eris.users.size} Users. BOOYAH!`,
-      type: 3,
-      url: 'https://github.com/carriejv/cyborg',
-    };
+    let status;
+    switch(statusIndex) {
+      case 0:
+        status = {
+          name: `${eris.users.size} users. Booyah!`,
+          type: 3,
+          url: 'https://github.com/carriejv/cyborg',
+        };
+        break;
+      case 1:
+        status = {
+          name: `${eris.guilds.size} servers. Booyah!`,
+          type: 3,
+          url: 'https://github.com/carriejv/cyborg',
+        };
+        break;
+      case 2:
+        const cyChannels = Object.keys(cyInstances).map(x => cyInstances[x].config.cyChannels.length).reduce((a, c) => a + c);
+        status = {
+          name: `${cyChannels} CyTube channels. Booyah!`,
+          type: 3,
+          url: 'https://github.com/carriejv/cyborg',
+        };
+        break;
+      case 3:
+        status = {
+          name: `!cy help. Booyah!`,
+          type: 0,
+          url: 'https://github.com/carriejv/cyborg',
+        };
+        break;
+    }
     eris.editStatus('online', status);
+    if(++statusIndex > 3) {
+      statusIndex = 0;
+    }
   }
 
   eris.on('ready', () => {
@@ -124,7 +155,7 @@ async function init() {
     eris.connect();
   }
   catch(err) {
-    console.log(`Discord connection error: ${err}`);
+    console.error(`Discord connection error: ${err}`);
   }
 }
 
