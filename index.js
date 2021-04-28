@@ -61,17 +61,45 @@ async function init() {
     cyInstances[guild.id] = new Cyborg(eris, commandParser, guild, LANG);
   }
 
+  let statusIndex = 0
   /** Updates bot status message. */
   function statusUpdate() {
-    const status = {
-      status: 'online',
-      game: {
-        name: `${eris.users.size} Users. BOOYAH!`,
-        type: 3,
-        url: 'https://github.com/carriejv/cyborg',
-      },
-    };
-    eris.editStatus(status);
+    let status;
+    switch(statusIndex) {
+      case 0:
+        status = {
+          name: `${eris.users.size} users. Booyah!`,
+          type: 3,
+          url: 'https://github.com/carriejv/cyborg',
+        };
+        break;
+      case 1:
+        status = {
+          name: `${eris.guilds.size} servers. Booyah!`,
+          type: 3,
+          url: 'https://github.com/carriejv/cyborg',
+        };
+        break;
+      case 2:
+        const cyChannels = Object.keys(cyInstances).map(x => cyInstances[x].config.cyChannels.length).reduce((a, c) => a + c);
+        status = {
+          name: `${cyChannels} CyTube channels. Booyah!`,
+          type: 3,
+          url: 'https://github.com/carriejv/cyborg',
+        };
+        break;
+      case 3:
+        status = {
+          name: `!cy ?. Booyah!`,
+          type: 0,
+          url: 'https://github.com/carriejv/cyborg',
+        };
+        break;
+    }
+    eris.editStatus('online', status);
+    if(++statusIndex > 3) {
+      statusIndex = 0;
+    }
   }
 
   eris.on('ready', () => {
@@ -115,14 +143,20 @@ async function init() {
     try {
       eris.createMessage(guild.systemChannelID, printf(LANG[gLang].NEW_GUILD,
         {
-          version: process.env.npm_package_version || lang[LANG_CODE].VERSION,
+          version: process.env.npm_package_version,
         }));
       }
       catch(err) {
         console.error(err);
       }
   });
-  eris.connect();
+  // Errors can get thrown here in case of temporary connection outages, but Eris reconnects automatically.
+  try {
+    eris.connect();
+  }
+  catch(err) {
+    console.error(`Discord connection error: ${err}`);
+  }
 }
 
 init();

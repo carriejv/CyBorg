@@ -12,7 +12,7 @@
     "COMMAND": {
         "INFO":         "info",
         "INFO_DESC":    "Displays general information, version number, and uptime.",
-        "INFO_RESP":    "**CyBorg %(version)s**\n\n**Status:** %(guilds)s servers with %(users)s members.\n**Uptime:** %(uptime)s",
+        "INFO_RESP":    "**CyBorg %(version)s**\n\n**Uptime:** %(uptime)s\n**Shards:** %(shards)s\n**Users:** %(users)s",
     
         "BOOYAH":       "booyah",
         "BOOYAH_DESC":  "BOOYAH!",
