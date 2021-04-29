@@ -1,4 +1,4 @@
-FROM node:14.15.1-alpine
+FROM node:14.16.1-buster
 COPY LICENSE /cyborg/LICENSE
 COPY index.js /cyborg/index.js
 COPY package.json /cyborg/package.json
