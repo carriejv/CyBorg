@@ -11,8 +11,10 @@ const printf = require('printf');
 
 const Cyborg = require('./lib/cyborg.js');
 const commander = require('./lib/commands.js');
+const stats = require('./lib/stats');
 
 const cyInstances = {};
+const STAT_REFRESH_INTERVAL = 30000;
 
 async function init() {
   // Load config
@@ -68,7 +70,7 @@ async function init() {
     }
     catch(err) {
       console.error(`Discord connection error: ${err}. Attempting to reconnect...`);
-      reconnectInterval = SetInterval(init, 10000);
+      reconnectInterval = setInterval(connectEris, 10000);
     }
   }
 
@@ -90,24 +92,22 @@ async function init() {
     let status;
     switch(statusIndex) {
       case 0:
-        const users = eris.guilds.map(x => x.memberCount).reduce((a, c) => a + c);
         status = {
-          name: `${users} users. Booyah!`,
+          name: `${stats.currentStats.users} users. Booyah!`,
           type: 3,
           url: 'https://github.com/carriejv/cyborg',
         };
         break;
       case 1:
         status = {
-          name: `${eris.guilds.size} servers. Booyah!`,
+          name: `${stats.currentStats.servers} servers. Booyah!`,
           type: 3,
           url: 'https://github.com/carriejv/cyborg',
         };
         break;
       case 2:
-        const cyChannels = Object.keys(cyInstances).map(x => cyInstances[x].config.cyChannels.length).reduce((a, c) => a + c);
         status = {
-          name: `${cyChannels} CyTube channels. Booyah!`,
+          name: `${stats.currentStats.cytubeChannels} CyTube channels. Booyah!`,
           type: 3,
           url: 'https://github.com/carriejv/cyborg',
         };
@@ -142,8 +142,12 @@ async function init() {
     console.log(printf(LANG[gLang].OAUTH, {
       url: `https://discordapp.com/api/oauth2/authorize?client_id=${SECRET.discord.CLIENT_ID}&permissions=199680&scope=bot`,
     }));
+    stats.updateStats(eris, cyInstances);
+    setInterval(() => {
+      stats.updateStats(eris, cyInstances);
+    }, STAT_REFRESH_INTERVAL);
     statusUpdate();
-    setInterval(statusUpdate, 30000);
+    setInterval(statusUpdate, STAT_REFRESH_INTERVAL);
     // Attach listeners.
     eris.on('messageCreate', (msg) => {
       if(msg.channel && msg.channel.guild && msg.channel.guild.id) {
@@ -177,10 +181,9 @@ async function init() {
     });
 
     // Raw Eris errors usually indicate a connection problem
-    eris.on('error', (error) => {
-      console.error('Discord connection error.')
-      console.error(error);
-      connectEris();
+    eris.on('error', (err) => {
+      console.error(`Discord connection error: ${err}. Attempting to reconnect...`);
+      reconnectInterval = setInterval(connectEris, 10000);
     });
 
   });
