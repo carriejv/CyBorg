@@ -53,25 +53,19 @@ async function init() {
   // Generate Commands
   const commandParser = commander(eris, LANG);
 
-  /**
-   * Initializes an Eris connection, triggering a reconnect timer if it fails.
-   * Checks `isConnecting` to prevent multiple shard disconnects from attempting to trigger multiple reconnects.
+  /** 
+   * Triggers an auto-reconnect loop.
+   * If one is already in progress, another will not be triggered.
    */
-  async function connectEris() {
+  function beginReconnecting() {
     if(isConnecting) {
       return false;
     }
     isConnecting = true;
-    try {
-      await eris.connect();
-      reconnectInterval && clearInterval(reconnectInterval);
-      isConnecting = false;
-      console.log('Successfully connected to Discord.');
-    }
-    catch(err) {
-      console.error(`Discord connection error: ${err}. Attempting to reconnect...`);
-      reconnectInterval = setInterval(connectEris, 10000);
-    }
+    reconnectInterval = setInterval(() => {
+      console.log('Attempting to reconnect...');
+      eris.connect();
+    }, 10000);
   }
 
   /**
@@ -180,15 +174,23 @@ async function init() {
         }
     });
 
-    // Raw Eris errors usually indicate a connection problem
-    eris.on('error', (err) => {
-      console.error(`Discord connection error: ${err}. Attempting to reconnect...`);
-      reconnectInterval = setInterval(connectEris, 10000);
-    });
-
   });
 
-  connectEris();
+  // Stop auto-reconnecting if disconnected.
+  eris.on('connect', () => {
+    console.log('Successfully connected to Discord.');
+    reconnectInterval && clearInterval(reconnectInterval);
+  });
+
+  // Raw Eris errors usually indicate a connection problem
+  eris.on('error', (err) => {
+    console.error('Discord connection error.');
+    console.error(err);
+    beginReconnecting();
+  });
+
+  eris.connect();
+
 }
 
 init();
