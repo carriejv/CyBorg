@@ -3,9 +3,9 @@
     "OAUTH":    "To add the bot to a server, visit:\n%(url)s",
     "JOIN":     "Joining guild %(id)s (%(name)s)...",
     "READY":    "CyBorg is ready!",
-    "VERSION":  "0.1.8",
+    "VERSION":  "0.1.19",
 
-    "NEW_GUILD":   "Welcome to **CyBorg %(version)s**!\n`!cy cytube [channel name]` to get info about a CyTu.be channel.\nYou can also `!cy announce [channel name] to automatically post info and `!cy channel [discord channel mention]` to set where those announcements appear.\nYou can always `!cy help` for more information!",
+    "NEW_GUILD":   "Welcome to **CyBorg %(version)s**!\n`!cy cytube [channel name]` to get info about a CyTu.be channel.\nYou can also `!cy announce [channel name]` to automatically post info and `!cy channel [discord channel mention]` to set where those announcements appear.\nYou can always `!cy help` for more information!",
     
     "ERR_NOTOKEN": "There is no TOKEN in ./secrets/discord.json",
 

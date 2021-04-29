@@ -44,7 +44,7 @@ The `config` directory may optionally contain a `global.json` file, but will als
 
 ### With Node
 
-If you prefer to locally host your own copy of CyBorg, you can do that too. CyBorg requires Node.js](https://nodejs.org/en/) `>=10`.
+If you prefer to locally host your own copy of CyBorg, you can do that too. CyBorg requires [Node.js](https://nodejs.org/en/) `>=10`.
 
 Register your own Discord app [here](https://nodejs.org/en/) and fill the appropriate information into `./secrets/discord.json`. An example file is provided.
 
